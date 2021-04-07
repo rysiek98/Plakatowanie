@@ -1,3 +1,0 @@
-C:/Users/Michal/Documents/GitHub/Plakatowanie/cmake-build-debug/CMakeFiles/Plakatowanie.dir
-C:/Users/Michal/Documents/GitHub/Plakatowanie/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Michal/Documents/GitHub/Plakatowanie/cmake-build-debug/CMakeFiles/rebuild_cache.dir
