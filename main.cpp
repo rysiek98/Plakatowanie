@@ -43,7 +43,7 @@ int main() {
 
    //From file
     fstream file;
-    file.open("buildings.txt", ios::in);
+    file.open("..\\buildings.txt", ios::in);
     if(file.good()){
         file >> buildingsNumber;
         for(int i = 0; i< buildingsNumber; i++){
