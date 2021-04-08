@@ -1,3 +1,12 @@
+
+
+///My solution of task "Plakatowanie" from XV Olympiad in Informatics, www.oi.edu.pl
+///Author: Michał Ryszka, 04.2021
+
+///Moje rozwiązanie zadania "Plakatowanie" z 15 Olimpiady Informatycznej, www.oi.edu.pl
+///Autor: Michał Ryszka, 04.2021
+
+
 #include <iostream>
 #include <fstream>
 
@@ -17,32 +26,35 @@ void addBuilding(int buildingHeight){
         buildingsTable[++lastBuildingNumber] = buildingHeight;
         return;
     }
+}
 
-//    for(int i = lastBuildingNumber; i >= 0; i--)
-//    {
-//        if(buildingsTable[i] < buildingHeight){
-//            buildingsTable[i + 1] = buildingHeight;
-//            lastBuildingNumber= i + 1;
-//            return;
-//        }
-//        if(i == 0 && buildingsTable[0] >= buildingHeight){
-//            buildingsTable[0] = buildingHeight;
-//            lastBuildingNumber=0;
-//            return;
-//        }
-//    }
+bool addBuilding(int loopNumber, int buildingHeight){
+
+    if(buildingsTable[loopNumber] < buildingHeight){
+        buildingsTable[loopNumber + 1] = buildingHeight;
+        lastBuildingNumber = loopNumber + 1;
+        return true;
+    }
+
+    if(loopNumber == 0 && buildingsTable[0] >= buildingHeight){
+        buildingsTable[0] = buildingHeight;
+        lastBuildingNumber = 0;
+        return true;
+    }
+
+    return false;
 }
 
 int main() {
 
-    //From keyboard
+    //Data from keyboard
    /*
     scanf("%d", &amountOfBuildings);
     for(int i = 0; i < amountOfBuildings; i++){
         scanf("%d %d", &buildingsWidth[i], &buildingsHeight[i]);
     }*/
 
-   //From file
+   //Data from file (used to testing program)
     fstream file;
     //file.open("..\\tests_data\\in\\pla1a.in", ios::in);
     //file.open("..\\tests_data\\in\\pla1b.in", ios::in);
@@ -78,7 +90,7 @@ int main() {
             file >> buildingsHeight[i];
         }
     } else{
-        printf("Error!!");
+        printf("Error! File not found!\n");
     }
     file.close();
 
@@ -101,16 +113,7 @@ int main() {
                     break;
                 }
 
-                if(buildingsTable[j] < buildingsHeight[i]){
-                    buildingsTable[j + 1] = buildingsHeight[i];
-                    lastBuildingNumber= j + 1;
-                    result++;
-                    break;
-                }
-
-                if(j == 0 && buildingsTable[0] >= buildingsHeight[i]){
-                    buildingsTable[0] = buildingsHeight[i];
-                    lastBuildingNumber=0;
+                if(addBuilding(j, buildingsHeight[i])){
                     result++;
                     break;
                 }
@@ -119,7 +122,7 @@ int main() {
         }
 
     }
-    printf("Wynik: %d\n",result);
+    printf("Result: %d\n",result);
     return 0;
 }
 
