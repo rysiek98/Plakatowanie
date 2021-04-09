@@ -48,14 +48,13 @@ bool addBuilding(int loopNumber, int buildingHeight){
 int main() {
 
     //Data from keyboard
-   /*
     scanf("%d", &amountOfBuildings);
     for(int i = 0; i < amountOfBuildings; i++){
         scanf("%d %d", &buildingsWidth[i], &buildingsHeight[i]);
-    }*/
+    }
 
    //Data from file (used to testing program)
-    fstream file;
+    /*fstream file;
     //file.open("..\\tests_data\\in\\pla1a.in", ios::in);
     //file.open("..\\tests_data\\in\\pla1b.in", ios::in);
     //file.open("..\\tests_data\\in\\pla1c.in", ios::in);
@@ -92,7 +91,7 @@ int main() {
     } else{
         printf("Error! File not found!\n");
     }
-    file.close();
+    file.close();*/
 
     result = 1;
     buildingsTable[0] = buildingsHeight[0];
@@ -122,7 +121,7 @@ int main() {
         }
 
     }
-    printf("Result: %d\n",result);
+    printf("%d\n",result);
     return 0;
 }
 
